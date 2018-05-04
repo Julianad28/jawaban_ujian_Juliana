@@ -18,8 +18,8 @@ public class TUGAS {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int barang,total = 0,jumlah_pembelian = 0,harga= 0,status_anggota,diskon = 0,anggota,bukan_anggota,member;
-        String nama,kode_barang = null,sttus_anggota;
+        int barang,total = 0,jumlah_pembelian = 0,harga= 0,status;
+        String nama,kode_barang = null,sttus_anggota,status_anggota=null;
         
         Scanner inputan= new Scanner(System.in);
         
@@ -29,19 +29,18 @@ public class TUGAS {
         System.out.println("4. Telor");
         System.out.println("5. Oatmeal");
         
-        System.out.println("Kode Barang [1/2/3/4/5] : ");
+        System.out.println("Kode Barang [1/2/3/4] : ");
         barang=inputan.nextInt();        
       
         System.out.println("Jumlah Pembelian: ");
        jumlah_pembelian=inputan.nextInt();
        
-       System.out.println("Status [Member 1/[Non Member 2] : ");
-       status_anggota=inputan.nextInt();
+       inputan.nextLine();
        
+       System.out.println("Status [Member /[Non Member ] : ");
+       status_anggota=inputan.nextLine();
        
-        
-       
-        
+      
         
         switch(barang){
             case 1:
@@ -68,12 +67,14 @@ public class TUGAS {
                 
            }  
         
+       
+        
         switch(status_anggota){
-            case 1:
-                sttus_anggota="dapat diskon";
-        total=harga*jumlah_pembelian*30/100;
+            case "Member" :
+         sttus_anggota = "dapat diskon";
+         total=harga*jumlah_pembelian*30/100;
                 break;
-            case 2:
+            case "Non Member":
                 sttus_anggota="tidak dapat diskon";
                 total=harga*jumlah_pembelian;
                 break;
@@ -89,10 +90,11 @@ public class TUGAS {
         
             System.out.println("Terimakasih telah melakukan transaksi dengan rincian sebagai berikut");
             System.out.println("Nama Barang : "+kode_barang);
-            System.out.println("Status : " );
+            System.out.println("Status : "+status_anggota);
             System.out.println("Harga : "+harga);
-            System.out.println("Total yang harus dibayar : "+total);
+            System.out.println("Total yang harus dibayar : Rp" +total);
             System.out.println("Semoga pelayanan kami memuaskan");
+             
   
                 
         
